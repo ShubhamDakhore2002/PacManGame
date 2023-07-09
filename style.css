@@ -1,0 +1,206 @@
+:root {
+  --width: 70vw;
+  --height: 70vh;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+body {
+  overscroll-behavior: contain;
+  caret-color: transparent;
+  background-color: #808080;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas {
+  background-color: #403030b3;
+  position: relative;
+  border-radius: 5px;
+}
+
+#gameBoard {
+  cursor: none;
+  max-width: var(--width);
+  margin: 3vmin 3vmin;
+  background-color: black;
+  max-height: var(--height);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+#pacman {
+  width: 100%;
+  height: 100%;
+}
+
+.ghost {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 4;
+}
+
+#fullscreenToggler {
+  background-color: #303030b3;
+  background-image: url("../image/fullscreen.svg");
+  background-size: cover;
+  margin: 0.4vmin;
+  width: 2.8vmin;
+  height: 2.8vmin;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+button {
+  border-width: 0.2vmin;
+  padding: 0.2vmin 0.6vmin;
+}
+
+#scoreBoard {
+  position: absolute;
+  top: 1vmin;
+  left: 3vmin;
+  line-height: 1vmin;
+  font-size: 2.5vmin;
+}
+
+.food-element {
+  width: 40%;
+  height: 40%;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.power-pellet {
+  width: 0%;
+  height: 0%;
+  animation: grow-power-pellet infinite 1s alternate;
+}
+
+@keyframes grow-power-pellet {
+  50% {
+    width: 70%;
+    height: 70%;
+  }
+
+  100% {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+.wall-element {
+  width: 60%;
+  height: 60%;
+  background-color: #0c7703b3;
+  border: 2px ridge #429404bf;
+
+}
+
+.animated-pacman-body {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #f2d648;
+  position: relative;
+}
+
+.animated-pacman-eye {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
+  top: 20%;
+  right: 40%;
+  background: #333333;
+}
+
+.animated-pacman-mouth {
+  position: absolute;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  animation: eat 0.5s infinite alternate;
+  animation-duration: 2s;
+}
+
+@keyframes eat {
+  0% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+
+  25% {
+    clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+  }
+
+  50% {
+    clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+  }
+
+  75% {
+    clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+  }
+
+  100% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+}
+
+.pause-state {
+  opacity: 0.6;
+}
+
+.pause-screen {
+  position: absolute;
+  top: 40%;
+  text-align: center;
+  font-size: 12vmin;
+  color: whitesmoke;
+  opacity: 1;
+}
+
+#pacman-logo {
+  background: url("../image/Pacman-logo.svg") no-repeat;
+  background-size: contain;
+  width: 60vw;
+  height: 20vw;
+
+  position: absolute;
+  top: 10%;
+}
+
+#play-button {
+  width: 20vw;
+  height: 10vw;
+  border-radius: 5vw;
+  font-size: 4vw;
+  font-weight: bold;
+  background-color: #ff9500;
+  color: white;
+  border: 1.6vw ridge rgb(167, 83, 5);
+  box-shadow: 0 1.6vw #604040;
+  position: absolute;
+  top: 70%;
+}
+
+#play-button:hover {
+  background-color: #ee8700;
+}
+
+#play-button:active {
+  background-color: #ff7000;
+  box-shadow: 0 0.6vw #302020;
+  transform: translateY(1vw);
+}
