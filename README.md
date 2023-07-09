@@ -1,4 +1,4 @@
-# pac-man
-A simple 2D game using vanilla JavaScript
+# PacManGame
+A simple 2D game using Vanilla JavaScript
 
-Game can be played [here](https://ganesh-rb.github.io/pac-man/)
+Game can be played [here](https://shubhamdakhore2002.github.io/PacManGame/)
